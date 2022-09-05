@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>AJUDA</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div class="header" padding>
+    <img src="../../assets/logo.png" />
+    <span class="description">Se você possui alguma duvida ou está com algum problema no aplicativo, solicite ajuda
+      selecionando uma das opções abaixo.
+    </span>
+  </div>
+
+  <ion-list lines="none">
+    <ion-item (click)="assitencia24Horas()" [ngStyle]="telAssitencia24Horas != null ? {'cursor': 'pointer' } : {'cursor': 'not-allowed' }">
+      <fa-icon slot="start" [icon]="faHeadset" [ngStyle]="telAssitencia24Horas != null ? {'color': '#FF5133' } : {'color': '#C7C7C7' }" size="2x"></fa-icon>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h3>Assistência 24 horas.</h3>
+          <p>Solicite ajuda caso tenha alguma duvida sobre os nosso serviços.</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="centralMonitoramento()" [ngStyle]="telCentralMonitoramento != null ? {'cursor': 'pointer' } : {'cursor': 'not-allowed' }">
+      <fa-icon slot="start" [icon]="faChartLine" [ngStyle]="telCentralMonitoramento != null ? {'color': '#FF5133' } : {'color': '#C7C7C7' }" size="2x"></fa-icon>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h3>Central de Monitoramento.</h3>
+          <p>Suspeita de roubo, alarmes, entre outros.</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="manutencaoRastreador()" [ngStyle]="telManutencaoRastreador != null ? {'cursor': 'pointer' } : {'cursor': 'not-allowed' }">
+      <fa-icon slot="start" [icon]="faTools" [ngStyle]="telManutencaoRastreador != null ? {'color': '#FF5133' } : {'color': '#C7C7C7' }" size="2x"></fa-icon>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h3>Manutenção do Rastreador.</h3>
+          <p>Fale com a nossa equipe de suporte técnico.</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+    <ion-item (click)="openSegundaViaBoleto()" [ngStyle]="segundaViaBoleto != null ? {'cursor': 'pointer' } : {'cursor': 'not-allowed' }">
+      <fa-icon slot="start" [icon]="faBarcode" [ngStyle]="segundaViaBoleto != null ? {'color': '#FF5133' } : {'color': '#C7C7C7' }" size="2x"></fa-icon>
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h3>Segunda via de boleto</h3>
+          <p>Para emitir o boleto pela internet clique aqui.</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
