@@ -1,0 +1,55 @@
+:host {
+  .item-interactive {
+    --highlight-color-focused: transparent !important;
+  }
+  .item-interactive.ion-invalid{
+   --highlight-background: transparent !important;
+ }
+ .item-interactive.ion-valid{
+   --highlight-background: transparent !important;
+ }
+}
+ion-item {
+  padding-top: 10px;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.group-input {
+  border: 1px solid var(--ion-color-light);
+  width: 100%;
+  display: flex;
+  padding: 5px 5px 5px 15px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.tooltip-danger {
+  --balloon-color: var(--ion-color-danger);
+}
+ion-label {
+  color: var(--ion-color-medium) !important;
+}
+ion-label.md {
+  margin-bottom: 10px !important;
+}
+ion-list {
+  margin-bottom: 32px !important;
+  z-index: 0;
+}
+[aria-label][data-balloon-pos] {
+  position: absolute;
+  top: 251px;
+  z-index: 999 !important;
+  left: 86px;
+}
+[aria-label][data-balloon-pos]::after {
+  text-transform: initial !important;
+  white-space: pre-wrap !important;
+}
+

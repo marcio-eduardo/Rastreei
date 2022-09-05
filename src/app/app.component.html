@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-split-pane contentId="main-content" when="(min-width: 2048px)">
+    <ion-menu contentId="main-content" type="overlay" (ionWillOpen)="menuOpened()">
+      <ion-content>
+        <div class="user-info">
+          <div class="container">
+            <div class="photo"></div>
+            <div class="detail-user">
+              <span>{{ userInfo?.nome }}</span>
+              <!-- <span>Código: {{ userInfo?.id_usuario_login }}</span> -->
+            </div>
+          </div>
+        </div>
+        <ion-list lines="none">
+          <ion-menu-toggle auto-hide="false">
+            <ion-item *ngFor="let p of appPages" detail="false" [routerDirection]="'root'" [routerLink]="[p.url]"
+              [ngClass]="{'logout': p.title === 'Sair'}">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+            <ion-item (click)="openSegundaViaBoleto()" *ngIf="segundaViaBoleto != null">
+              <ion-icon slot="start" name="barcode"></ion-icon>
+              <ion-label>
+                Segunda via de Boleto
+              </ion-label>
+            </ion-item>
+            <ion-item class="logout" (click)="logout()">
+              <ion-icon slot="start" name="md-exit"></ion-icon>
+              <ion-label>
+                Sair
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <div class="info-app">
+          <img src="../assets/logo.png" alt="logo" />
+          <div class="box-info">
+            <span>
+              <ion-icon slot="start" name="md-call"></ion-icon>
+              Telefone para Contato
+            </span>
+            <span>{{telContato.vl_parametro}}</span>
+          </div>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
