@@ -1,0 +1,35 @@
+:host {
+  .item-interactive.ion-invalid{
+   --highlight-background: transparent !important;
+ }
+ .item-interactive.ion-valid{
+   --highlight-background: transparent !important;
+ }
+}
+
+ion-icon{
+  color: var(--ion-color-medium)
+}
+
+.logo {
+  // width: 81px;
+  text-align: center;
+  margin-bottom: 50px;
+  margin-top: 60px;
+}
+.logo img {
+  width: 60%;
+}
+
+ion-item {
+  border-bottom: 1px solid var(--ion-color-light); 
+  margin-top: 20px;
+}
+ion-item:last-child {
+  border-bottom: none ;
+}
+
+ion-input {
+  box-shadow: none !important; 
+  border: none; 
+}

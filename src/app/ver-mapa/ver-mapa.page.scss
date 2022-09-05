@@ -1,0 +1,98 @@
+.map {
+  height: 100%;
+}
+.me {
+  width: 52px;
+  height: 52px;
+  background: white;
+  border-radius: 12px;
+  position: absolute;
+  z-index: 99999;
+  bottom: 140px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.34);
+}
+
+.me img {
+  filter: grayscale(1) !important;
+}
+
+.content-user-profile {
+  position: fixed;
+  height: 107px;
+  width: 100%;
+  bottom: 0px;
+  background: white;
+  padding: 10px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -7px 6px rgba(0,0,0,0.10);
+
+  .info {
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    .user {
+      display: flex;
+      flex-direction: column;
+      padding-left: 10px;
+
+      span:first-child {
+        color: var(--ion-color-secondary);
+        font-weight: 700;
+        font-size: 20px;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      span:last-child {
+        font-size: 12px;
+        color: var(--ion-color-light);
+      }
+    }
+    .photo {
+      min-height: 52px !important;
+      min-width: 52px !important;
+      background: white;
+      border-radius: 100%;
+      background-image: url('../../assets/logo.png');
+      background-position: 4px;
+      background-size: 40px;
+      border: 1px solid var(--ion-color-light);
+      background-repeat: no-repeat;
+    }
+  }
+  .count {
+    width: 30%;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    .box-count {
+      background: var(--ion-color-secondary);
+      color: white;
+      height: 50px;
+      width: 50px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .box-count ~ span {
+      color: var(--ion-color-light);
+      font-size: 12px;
+      margin-top: 6px;
+  }
+  }
+}

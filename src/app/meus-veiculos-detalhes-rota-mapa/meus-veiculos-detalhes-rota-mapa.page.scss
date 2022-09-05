@@ -1,0 +1,65 @@
+.map {
+  height: calc(100vh - 56px) !important;
+  min-width: 100px;
+  min-height: 100px;
+  position: relative;
+}
+
+.content-info-vehicle-mapa {
+  position: fixed;
+  bottom: 0px;
+  background: white;
+  width: 100%;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  box-shadow: 0px -7px 6px rgba(0,0,0,0.20);
+}
+
+.info-vehicle-mapa {
+  display: flex;
+}
+
+ion-grid {
+  .info {
+    flex-direction: column;
+  }
+  h3 {
+    color: var(--ion-color-medium);
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 18px !important;
+  }
+  h4 {
+    color: var(--ion-color-light);
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 15px !important;
+  }
+  .car-icon-circle {
+    background: var(--ion-color-secondary);
+    width: 58px;
+    height: 58px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    color:#fff;
+  }
+  .type {
+    background: var(--ion-color-primary);
+    padding: 5px 18px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+}
+.filter {
+  width: 100%;
+  text-align: right;
+  font-size: 12px;
+  margin: 5px;
+  color: var(--ion-color-light);
+}

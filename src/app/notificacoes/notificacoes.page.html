@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>NOTIFICAÇÕES</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="filter()">
+        <ion-icon slot="icon-only" name="ios-funnel"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-item lines="none" class="searching">
+    <ion-input [(ngModel)]="searchText" (blur)="searchingHandler()" placeholder="Pesquisar..."></ion-input>
+    <ion-button slot="end" fill="clear" (click)="searchingHandler()" color="secondary">
+      <ion-icon slot="icon-only" name="search"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-list lines="none">
+    <ion-item *ngFor="let item of list">
+      <div slot="start" class="container-icon">
+        <ion-icon size="small" [ngStyle]="{ 'color' : '#FFF' }" name="notifications"></ion-icon>
+      </div>
+      <ion-label text-wrap>
+        <ion-text>
+          <h3>{{item.placa}}</h3>
+          <p>{{item.assunto}}</p>
+        </ion-text>
+      </ion-label>
+      <ion-note>
+        {{item.dt_abertura | datahora}}
+      </ion-note>
+    </ion-item>
+    <ion-item *ngIf="list.length === 0">
+      <div class="empty">
+        Não existem notificações à serem listadas ou a sua pesquisa não retornou dados.
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

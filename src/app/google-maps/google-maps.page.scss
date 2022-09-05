@@ -1,0 +1,139 @@
+ion-title {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  .info-header-detalhes {
+    background: var(--ion-color-secondary);
+    height: 190px;
+    display: flex;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0px 3px 10px rgba(0,0,0, 0.20);
+  
+    .element, span {
+      color: #fff;
+      font-size: 12px !important;
+      ion-icon {
+        margin-bottom: -2px;
+      }
+    }
+    ion-col {
+      --ion-grid-column-padding: 0px;
+    }
+    h3 {
+      color: white;
+      margin: 0px;
+      margin-bottom: 4px;
+      font-size: 18px !important;
+    }
+    h4 {
+      color: white;
+      margin: 0px;
+      margin-bottom: 4px;
+      font-size: 15px !important;
+    }
+    p {
+      color: white;
+      margin: 0px;
+      margin-bottom: 4px;
+      font-size: 12px !important;
+    }
+    ion-row.info {
+      flex-direction: column;
+    }
+    .car-icon-circle {
+      background: white;
+      width: 83px;
+      height: 83px;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    ion-grid {
+      height: auto !important;
+      align-self: center;
+    }
+    .type {
+      background: white;
+      padding: 5px 18px;
+      color: var(--ion-color-secondary);
+      font-size: 12px;
+      font-weight: bold;
+      margin-top: 8px;
+      border-radius: 6px;
+    }
+  }
+  .actions {
+    margin-top: 10px;
+    ion-col {
+      display: flex;
+      justify-content: center;
+      
+      button {
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .icon {
+          height: 48px;
+          width: 48px;
+          background: var(--ion-color-primary);
+          border-radius: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .label {
+          color: var(--ion-color-medium);
+          font-size: 12px;
+          font-weight: 700;
+          margin-top: 14px;
+        }
+      }
+  
+    }
+  }
+  
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .plt-android #mapSection {
+    // height: 44vh;
+    justify-content: flex-end !important;
+    height: calc(100vh - 370px);
+  }
+  
+  .plt-ios #mapSection {
+    // height: 40vh;
+    justify-content: flex-end !important;
+    height: calc(100vh - 400px) !important;
+  }
+  
+  .map {
+    // height: 50vh;
+    height: 100%;
+  }
+  ion-fab-button[data-desc] {
+    position: relative;
+  }
+  
+  ion-fab-button[data-desc]::after {
+    position: absolute;
+      content: attr(data-desc);
+      z-index: 1;
+      right: 47px;
+      bottom: 4px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 6px;
+      border-radius: 8px;
+      color: white;
+      box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+  }
+  

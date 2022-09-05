@@ -1,0 +1,45 @@
+ion-col {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+    .icon {
+      height: 48px;
+      width: 48px;
+      background: var(--ion-color-secondary);
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+	
+	}
+
+	.icon.inativo {
+		background: var(--ion-color-medium);
+	}
+
+	// .icon img.icon-comandos-bloqueio {
+	// 	background: url(../../assets/icon-comandos-bloqueio.png) no-repeat;
+	// 	width: 21px;
+	// 	height: 23px;
+	// }
+  
+	// .icon img.icon-comandos-desbloqueio {
+	// 	background:  url(../../assets/icon-comandos-desbloqueio.png) no-repeat;
+	// 	width: 21px;
+	// 	height: 24px;
+	// }
+
+    .label {
+      color: var(--ion-color-medium);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 14px;
+    }
+  }
+}

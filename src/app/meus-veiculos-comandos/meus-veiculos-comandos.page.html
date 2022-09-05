@@ -1,0 +1,58 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">TIPO DE COMANDO</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding-start ion-padding-end">
+  <ion-grid class="ion-padding-start ion-padding-end">
+    <ion-row>
+      <ion-col>
+        <button (click)="vSpeedVerify === true && openSpeed()">
+          <div class="icon" [ngClass]="{'inativo': vSpeedVerify === false}">
+            <img src="../../assets/icon-comandos-velocidade.png">
+          </div>
+          <div class="label">Velocidade</div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="vMovimentVerify === true && openMoviment()">
+          <div class="icon" [ngClass]="{'inativo': vMovimentVerify === false}">
+            <img src="../../assets/icon-comandos-movimento.png">
+          </div>
+          <div class="label">Movimento</div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button (click)="vLockVerify === true && commandLock()">
+          <div class="icon" [ngClass]="{'inativo': vLockVerify === false}">
+            <img src="../../assets/icon-comandos-bloqueio.png">
+          </div>
+          <div class="label">Bloqueio</div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button (click)="vLockVerify === true && commandUnlock()">
+          <div class="icon" [ngClass]="{'inativo': vLockVerify === false}">
+            <img src="../../assets/icon-comandos-desbloqueio.png">
+          </div>
+          <div class="label">Desbloqueio</div>
+          <ion-ripple-effect></ion-ripple-effect>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer translucent="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="primary" (click)="Ok()">
+        OK
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

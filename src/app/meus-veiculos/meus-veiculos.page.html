@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar *ngIf="!searching" color="secondary">
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>MEUS VEÍCULOS</ion-title>
+
+    <ion-buttons slot="end">
+      <!-- <ion-button (click)="loadMyVehicles()">
+        <ion-icon slot="icon-only" name="refresh"></ion-icon>
+      </ion-button> -->
+      <ion-button (click)="searching = true">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+
+  <ion-toolbar *ngIf="searching" color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <input type="text" (blur)="searchingHandler()" [(ngModel)]="searchText" placeholder="Digite sua pesquisa..." />
+    <ion-buttons slot="end">
+      <ion-button (click)="searching = false">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+<div class="info-header">
+  <div class="container-info">
+    <span>Olá,<br>{{userInfo.nome_login}}</span>
+    <span>
+      <!-- Código : {{userInfo.id_usuario_login}} -->
+    </span>
+  </div>
+
+  <ion-button [disabled]="list.length === 0" color="white" (click)="showInMap()">
+    VER MAPA
+  </ion-button>
+  
+</div>
+
+<ion-content>
+  <ion-refresher position="bottom" slot="fixed" (ionRefresh)="refrehVehicles($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div class="ion-padding">
+    <div class="filter">
+      <h3>Lista de Veículos</h3>
+      <div class="filter-buttons">
+
+        <ion-button fill="clear" color="medium" size="small" (click)="openFilter()">
+          <ion-icon slot="end" name="ios-funnel"></ion-icon>
+          Filtro
+        </ion-button>
+
+        <ion-button fill="clear" color="medium" size="small" (click)="openOrder()">
+          <fa-icon [icon]="faSortAmountUp" slot="end" [ngStyle]="{ 'color': '#727272' }"></fa-icon>
+          Ordenar
+        </ion-button>
+        
+      </div>
+    </div>
+    <ion-list lines="none">
+      <ion-item *ngFor="let item of list" (click)="details(item)">
+        <div class="icon-box" slot="start">
+          <!-- <ion-icon name="ios-car" [ngStyle]="{'color':'#FFF'}"></ion-icon> -->
+          <ion-img [src]="setIcon(item.tipo_veiculo)"></ion-img>
+        </div>
+        <ion-text>
+          <div class="row-item">
+            <span class="title">{{item.placa}}</span>
+            <small>{{item.dt_localizacao | datahora}}</small>
+          </div>
+          <div class="row-item">
+            <div class="element">
+              <ion-icon name="ios-power"></ion-icon>
+              {{ item.ignicao.data[0] === 1 ? 'Ligado' : 'Desligado' }}
+            </div>
+            <div class="element">
+              <ion-icon name="md-battery-charging"></ion-icon>
+              {{item.bateria / 100}}v
+            </div>
+            <div class="element">
+              <ion-icon name="ios-speedometer"></ion-icon>
+              {{item.velocidade}} km/h
+            </div>
+          </div>
+          <div class="row-item">
+            <span>{{item.endereco}}</span>
+            <!-- <div *ngIf="item.total_alerta > 0" class="check"></div> -->
+          </div>
+        </ion-text>
+      </ion-item>
+      <ion-item *ngIf="list.length === 0">
+        <div class="empty">
+          Não existem veículos à serem listados ou a sua pesquisa não retornou dados.
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

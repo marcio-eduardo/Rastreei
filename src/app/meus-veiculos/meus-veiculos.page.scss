@@ -1,0 +1,112 @@
+.info-header {
+  background: linear-gradient(135deg, rgba(51,92,174,1) 0%, rgba(0,51,153,1) 100%);
+  height: 136px;
+  border-bottom-right-radius: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .container-info {
+    color: white;
+    display: flex;
+    flex-direction: column;
+
+    span:first-child {
+      font-size: 24px;
+      font-weight: 700;
+      padding-bottom: 4px;
+      width: 225px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    span:last-child {
+      font-size: 14px;
+    }
+
+  }
+}
+
+ion-list {
+  ion-item {
+    --padding-start: 0px;
+    margin-bottom: 10px;
+    width: calc(100% + 16px);
+    .icon-box {
+      margin-right: 15px;
+      border-radius: 8px;
+      background: var(--ion-color-secondary);
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    ion-text {
+      width: 100% !important;
+    }
+    .icon-box ion-img {
+      height: 25px;
+    }
+  }
+  .row-item {
+    display: inline-flex !important;
+    width: 100% !important;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    small {
+      align-self: center;
+      color: var(--ion-color-light);
+      font-size: 12px;
+    }
+    .element, span {
+      color: var(--ion-color-light);
+      font-size: 12px;
+      ion-icon {
+        margin-bottom: -2px;
+      }
+    }
+    
+    .title {
+      font-size: 14px !important;
+      color: var(--ion-color-medium);
+      font-weight: bold;
+    }
+  }
+}
+.check {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background: var(--ion-color-primary);
+}
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(112, 112, 112, 0.10);
+  h3 {
+    font-size: 18px !important;
+    color: var(--ion-color-medium);
+  }
+  .button-small {
+    font-size: 10px !important;
+  }
+  .button-small:last-child fa-icon {
+    margin-left: 5px;
+  }
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 6px;
+  background: var(--ion-color-secondory);
+  border: none;
+}
+input[type="text"]::placeholder { 
+  color: #ffffff;
+  opacity: 0.72; 
+}

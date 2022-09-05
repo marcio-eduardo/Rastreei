@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>MUDAR SENHA</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-button *ngIf="changeForm.password && changeForm.password.length < 6" class="tooltip-danger" data-balloon-length="medium"
+    aria-label="ATENÇÃO.
+    Esse campo deve conter no mínimo 6 caracteres.
+    (Senha Fraca)." data-balloon-pos="right" size="small"
+    fill="clear" color="danger">
+    <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+  </ion-button>
+  <div class="header" padding>
+    <img src="../../assets/icon_lock.png" />
+    <span class="description">Você pode alterar sua senha por motivos de segurança ou redefini-la, caso a esqueça.
+    </span>
+  </div>
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label position="stacked">Senha Antiga</ion-label>
+      <div class="group-input">
+        <ion-input [type]="!toogleLastPassword ? 'password' : 'text'" [(ngModel)]="changeForm.password_atual"></ion-input>
+        <ion-button slot="end" fill="clear" color="light" (click)="toogleLastPassword = !toogleLastPassword">
+          <ion-icon slot="icon-only" [name]=" !toogleLastPassword ? 'ios-eye' : 'md-eye-off'"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Nova Senha</ion-label>
+      <div class="group-input">
+        <ion-input [type]="!toogleNewPassWord ? 'password' : 'text'" [(ngModel)]="changeForm.password">
+        </ion-input>
+        <ion-button slot="end" fill="clear" color="light" (click)="toogleNewPassWord = !toogleNewPassWord">
+          <ion-icon slot="icon-only" [name]=" !toogleNewPassWord ? 'ios-eye' : 'md-eye-off'"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Repita a nova Senha</ion-label>
+      <div class="group-input">
+        <ion-input [type]="!toogleConfirmNewPassword ? 'password' : 'text'" [(ngModel)]="changeForm.repassword">
+        </ion-input>
+        <ion-button slot="end" fill="clear" color="light"
+          (click)="toogleConfirmNewPassword = !toogleConfirmNewPassword">
+          <ion-icon slot="icon-only" [name]=" !toogleConfirmNewPassword ? 'ios-eye' : 'md-eye-off'"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <div padding-start padding-end>
+    <ion-button color="secondary" expand="block" class="large" (click)="save()">
+      Salvar
+    </ion-button>
+  </div>
+</ion-content>

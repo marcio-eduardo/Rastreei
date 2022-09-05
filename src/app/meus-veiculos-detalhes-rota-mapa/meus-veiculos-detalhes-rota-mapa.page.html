@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>LOCALIZAÇÃO</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- 
+<ion-content>
+  
+</ion-content> -->
+<div #mapElement id="mapVehicle" class="map"></div>
+
+<div class="content-info-vehicle-mapa">
+  <div class="info-vehicle-mapa">
+    <ion-grid>
+      <ion-row>
+        <div class="filter">
+          {{filter.dt_inicial | datahora}} à {{filter.dt_final | datahora}}
+        </div>
+        <ion-col size="3">
+          <div class="car-icon-circle">
+            <ion-img [src]="setIcon(vehicle.tipo_veiculo)"></ion-img>
+          </div>
+        </ion-col>
+        <ion-col size="9">
+          <ion-row class="info">
+            <h3>{{vehicle.nome}}</h3>
+            <h4>{{vehicle.placa}}</h4>
+          </ion-row>
+          <ion-row>
+            <div class="type">{{vehicle.tipo_veiculo}}</div>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</div>
+

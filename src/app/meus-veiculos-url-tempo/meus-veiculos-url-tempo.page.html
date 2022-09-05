@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-header id="headerTempo" translucent="true">
+    <ion-toolbar>
+      <ion-title>TEMPO DE ACESSO</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content id="tempoURL" padding>
+    <ion-list lines="none">
+      <ion-item>
+        <ion-label color="medium" position="stacked">Tempo de vida da URL</ion-label>
+        <ion-select [(ngModel)]="tempo_acesso" placeholder="Selecione">
+          <ion-select-option *ngFor="let item of tempoURL" [value]="item.id">{{item.value}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium" position="stacked">&nbsp;</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-footer>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-button fill="clear" color="primary" (click)="cancelar()">
+          CANCELAR
+        </ion-button>
+        <ion-button fill="clear" color="primary" (click)="confirmar()" [disabled]="!tempo_acesso">
+          CONFIRMAR
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>
+</ion-app>

@@ -1,0 +1,119 @@
+<ion-header>
+	<ion-toolbar color="secondary">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>{{ vehicle.placa }} - {{ vehicle.nome }}</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content fixed>
+	<div class="section">
+		<div class="info-header-detalhes">
+			<ion-grid class="ion-padding">
+				<ion-row>
+					<ion-col size="3">
+						<div class="car-icon-circle">
+							<ion-img [src]="setIcon(vehicle.tipo_veiculo)"></ion-img>
+						</div>
+					</ion-col>
+					<ion-col class="ion-padding-start" size="9">
+						<ion-row class="info">
+							<h4>{{vehicle.dt_localizacao | datahora }}</h4>
+							<p>{{vehicle.endereco}}</p>
+						</ion-row>
+						<ion-row>
+							<ion-col>
+								<div class="element">
+									<ion-icon name="ios-power"></ion-icon>
+									{{ vehicle?.ignicao?.data[0] === 1 ? 'Ligado' : 'Desligado' }}
+								</div>
+							</ion-col>
+							<ion-col>
+								<div class="element">
+									<ion-icon name="md-battery-charging"></ion-icon>
+									{{vehicle.bateria / 100}}v
+								</div>
+							</ion-col>
+							<ion-col>
+								<div class="element">
+									<ion-icon name="ios-speedometer"></ion-icon>
+									{{vehicle.velocidade}} km/h
+								</div>
+							</ion-col>
+						</ion-row>
+						<ion-row>
+							<div class="type">{{vehicle.tipo_veiculo}}</div>
+						</ion-row>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</div>
+	<div class="section">
+		<ion-grid class="actions">
+			<ion-row>
+				<ion-col>
+					<button (click)="openComands()">
+						<div class="icon">
+							<img src="../../assets/icon-hand.png">
+						</div>
+						<div class="label">COMANDOS</div>
+						<ion-ripple-effect></ion-ripple-effect>
+					</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="openAlerts()">
+						<div class="icon">
+							<img src="../../assets/icon-alerts.png">
+						</div>
+						<div class="label">NOTIFICAÇÃO</div>
+						<ion-ripple-effect></ion-ripple-effect>
+					</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="openMaps()">
+						<div class="icon">
+							<img src="../../assets/icon-map.png">
+						</div>
+						<div class="label">MAPA</div>
+						<ion-ripple-effect></ion-ripple-effect>
+					</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="openGenerateUrl()">
+						<div class="icon">
+							<img src="../../assets/icon-url.png">
+						</div>
+						<div class="label">LINK</div>
+						<ion-ripple-effect></ion-ripple-effect>
+					</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="openTipoHistorico()">
+						<div class="icon">
+							<img src="../../assets/icon-compass.png">
+						</div>
+						<div class="label">HISTÓRICO</div>
+						<ion-ripple-effect></ion-ripple-effect>
+					</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+</ion-content>
+<div id="mapSection" class="section">
+	<div id="map" class="map"></div>
+</div>
+<ion-fab vertical="bottom" horizontal="start">
+	<ion-fab-button>
+		<img src="../../assets/icon-compass.png">
+	</ion-fab-button>
+	<ion-fab-list side="top" style="z-index: 999 !important;">
+		<ion-fab-button color="white" data-desc="Rota por Texto" (click)="openFilterDate('text')">
+			<img src="../../assets/icon-route-text.png">
+		</ion-fab-button>
+		<ion-fab-button color="white" data-desc="Rota por Mapa" (click)="openFilterDate('map')">
+			<img src="../../assets/icon-route-map.png">
+		</ion-fab-button>
+	</ion-fab-list>
+</ion-fab>

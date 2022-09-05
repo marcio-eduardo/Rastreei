@@ -1,0 +1,117 @@
+ion-list {
+  margin-bottom: 100px;
+  ion-item {
+    --padding-start: 0px;
+    img.pull-left {
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+    ion-label {
+      padding: 0px;
+      margin-bottom: 7px;
+      margin-top: 25px;
+      h3 {
+        font-weight: bold !important;
+        font-size: 14px !important;
+        color: var(--ion-color-medium);
+      }
+      p {
+        color: var(--ion-color-light);
+      }
+    }
+  }
+}
+.content-info-vehicle {
+  // position: fixed;
+  bottom: 0px;
+  background: white;
+  width: 100%;
+//   border-top-right-radius: 12px;
+//   border-top-left-radius: 12px;
+  box-shadow: 0px -7px 6px rgba(0,0,0,0.20);
+}
+
+.info-vehicle {
+  display: flex;
+}
+
+.info-notificacoes {
+	// ion-icon {
+	// 	font-size: 64px;
+	// 	color: #CCCCCC;
+	// }
+	ion-list-header {
+		--background: transparent;
+		--color: var(--ion-color-medium);
+		--border-color: var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-250, #c8c7cc)));
+		// padding-left: calc(var(--ion-safe-area-left, 0px) + 20px);
+		position: relative;
+		align-items: flex-end;
+		font-size: 18px !important;
+		font-weight: 500;
+		letter-spacing: 0px;
+	}
+
+	ion-list {
+		padding-inline-start: calc(var(--ion-safe-area-left, 0px) + 16px);
+		
+		ion-label {
+			color: var(--ion-color-light);
+			margin: 0px;
+			margin-bottom: 4px;
+			font-size: 15px !important;
+		}
+	}
+
+	
+	
+}
+
+
+
+ion-grid {
+  .info {
+    flex-direction: column;
+  }
+  h3 {
+    color: var(--ion-color-medium);
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 18px !important;
+  }
+  h4 {
+    color: var(--ion-color-light);
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 15px !important;
+  }
+  .car-icon-circle {
+    background: var(--ion-color-secondary);
+    width: 58px;
+    height: 58px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+  }
+  .type {
+    background: var(--ion-color-primary);
+    padding: 5px 18px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+}
+
+
+content-alert-drawer {
+	background: var(--ion-color-secondary) !important;
+//   background-color: #34495e !important;
+
+  ion-content {
+    padding: 20px !important;;
+  }
+}

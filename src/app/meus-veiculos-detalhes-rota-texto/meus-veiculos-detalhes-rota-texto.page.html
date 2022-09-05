@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>ROTAS</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="content-info-vehicle">
+    <div class="info-vehicle">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <div class="car-icon-circle">
+              <img src="../../assets/icon-car-white.png" />
+            </div>
+          </ion-col>
+          <ion-col size="9">
+            <ion-row class="info">
+              <h3>{{vehicle.nome}}</h3>
+              <h4>{{vehicle.placa}}</h4>
+            </ion-row>
+            <ion-row>
+              <div class="type">{{vehicle.tipo_veiculo}}</div>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div class="routes">
+    <div class="route" *ngFor="let route of routes">
+      <div class="route-date">
+        {{route.key}}
+      </div>
+      <div class="route-card">
+        <div *ngFor="let e of route.data" class="route-card-item">
+          <div class="wrapper-item">
+            <span class="route-card-address">{{e.endereco.S}}</span>
+            <div class="route-card-status">
+              <span>
+                <ion-icon name="ios-power"></ion-icon>
+                {{ e.ignicao.BOOL === true ? 'Ligado' : 'Desligado' }}
+              </span>
+              <span>
+                <ion-icon name="md-battery-charging"></ion-icon>
+                {{e.bateria_carro.N/100}} v
+              </span>
+              <span>
+                <ion-icon name="ios-speedometer"></ion-icon>
+                {{e.velocidade.N}} km/h
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

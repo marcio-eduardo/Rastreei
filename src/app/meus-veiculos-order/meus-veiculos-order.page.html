@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-list lines="none">
+    <ion-radio-group [(ngModel)]="order">
+      <ion-list-header>
+        Ordenar por A - Z
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="medium">Ordem Crescente</ion-label>
+        <ion-radio color="primary" slot="start" value="az_asc"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium">Ordem Decrescente</ion-label>
+        <ion-radio slot="start" value="az_desc"></ion-radio>
+      </ion-item>
+      <ion-list-header>
+        Ordenar por Data e Hora
+      </ion-list-header>
+      <ion-item>
+        <ion-label color="medium">Ordem Crescente</ion-label>
+        <ion-radio slot="start" value="dt_asc"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium">Ordem Decrescente</ion-label>
+        <ion-radio slot="start" value="dt_desc"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <div padding>
+    <ion-button expand="block" fill="solid" color="secondary" class="large" (click)="confirmar()">
+      CONFIRMAR
+    </ion-button>
+  </div>
+</ion-content>
