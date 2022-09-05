@@ -1,0 +1,17 @@
+ion-item {
+  border-bottom: 1px solid var(--ion-color-light); 
+  --padding-start: 0px;
+  --padding-end: 0px;
+}
+
+ion-item:last-child {
+  margin-top: 20px;
+}
+
+.ios {
+  --ion-safe-area-top:10px;
+}
+
+.md {
+  --ion-safe-area-top:10px;
+}

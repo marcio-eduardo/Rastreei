@@ -1,0 +1,31 @@
+<ion-header id="headerFilter" translucent="true">
+  <ion-toolbar>
+    <ion-title>FILTRAR POR</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding-start ion-padding-end">
+  <ion-list id="filterItem" lines="none">
+    <ion-item>
+      <ion-label color="medium" position="stacked">Placa</ion-label>
+      <ion-input [(ngModel)]="placa" class="ion-no-padding-start" type="text"></ion-input>
+    </ion-item>
+    <ion-item class="ion-no-padding ion-no-margin">
+      <ion-label color="medium" position="stacked">Tipo de Veículo</ion-label>
+      <ion-select [(ngModel)]="id_tipo_veiculo" placeholder="Selecione">
+        <ion-select-option *ngFor="let item of typesOfVehicles" [value]="item.id">{{item.value}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="primary" (click)="cancelar()">
+        CANCELAR
+      </ion-button>
+      <ion-button fill="clear" color="primary" (click)="filtrar()">
+        FILTRAR
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

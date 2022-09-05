@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>LINKS</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="criar()">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar> 
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of list"> 
+      <!-- <img class="pull-left" src="../../assets/icon-calendar.png"> -->
+      <ion-icon class="pull-left" name="link" item-start></ion-icon>
+      <ion-label text-wrap>
+        <ion-text>
+          <h3>{{item.dt_criacao | datahora}}</h3>
+          <p>Tempo: {{item.tempo_acesso}}h</p>
+          <p>Status: {{(item.flg_status.data[0] == true) ? 'Ativo' : 'Inativo'}}</p>
+        </ion-text>
+      </ion-label>
+      <button ion-item (click)="cancelar(item.id_link_externo)" [disabled]="!item.flg_status.data[0]">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-item (click)="copiar(item.chave_acesso)" [disabled]="!item.flg_status.data[0]">
+        <ion-icon name="copy"></ion-icon>
+      </button>
+      <!-- <button ion-item (click)="abrir_url(item.chave_acesso)" [disabled]="!item.flg_status.data[0]">
+        <ion-icon name="browsers"></ion-icon>
+      </button> -->
+    </ion-item>
+    <ion-item *ngIf="list.length === 0">
+      <div class="empty">
+        Não existem URLs à serem listadas.
+      </div>
+    </ion-item>
+  </ion-list>
+  <div class="content-info-vehicle">
+    <div class="info-vehicle">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="3">
+            <div class="car-icon-circle">
+              <img src="../../assets/icon-car-white.png" />
+            </div>
+          </ion-col>
+          <ion-col size="9">
+            <ion-row class="info">
+              <h3>{{vehicle.nome}}</h3>
+              <h4>{{vehicle.placa}}</h4>
+            </ion-row>
+            <ion-row>
+              <div class="type">{{vehicle.tipo_veiculo}}</div>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

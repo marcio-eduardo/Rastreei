@@ -1,0 +1,377 @@
+ion-title {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+.info-header-detalhes {
+  background: var(--ion-color-secondary);
+  height: 190px;
+  display: flex;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0px 3px 10px rgba(0,0,0, 0.20);
+
+  .element, span {
+    color: #fff;
+    font-size: 12px !important;
+    ion-icon {
+      margin-bottom: -2px;
+    }
+  }
+  ion-col {
+    --ion-grid-column-padding: 0px;
+  }
+  h3 {
+    color: white;
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 18px !important;
+  }
+  h4 {
+    color: white;
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 15px !important;
+  }
+  p {
+    color: white;
+    margin: 0px;
+    margin-bottom: 4px;
+    font-size: 12px !important;
+  }
+  ion-row.info {
+    flex-direction: column;
+  }
+  .car-icon-circle {
+    background: white;
+    width: 83px;
+    height: 83px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  ion-grid {
+    height: auto !important;
+    align-self: center;
+  }
+  .type {
+    background: white;
+    padding: 5px 18px;
+    color: var(--ion-color-secondary);
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 8px;
+    border-radius: 6px;
+  }
+}
+
+.md .actions {
+  margin-top: 10px;
+  width: 100%;
+  margin-left: 0px;
+  padding: 0px;
+  
+  ion-col {
+    display: flex;
+    justify-content: center;
+    font-size: 0.5rem !important;
+    margin-left: 0px;
+    padding: 0px;
+    
+    button {
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .icon {
+        height: 45px;
+        width: 45px;
+        background: var(--ion-color-primary);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .label {
+        color: var(--ion-color-medium);
+        font-size: 0.9rem !important;
+        font-weight: 700;
+        margin-top: 14px;
+      }
+    }
+  }
+}
+
+.ios .actions { 
+  margin-top: 10px;
+  width: 100%;
+  margin-left: 0px;
+  padding: 0px;
+
+  ion-col {
+    display: flex;
+    justify-content: center;
+    margin-left: 0px;
+    padding: 0px;
+    
+
+    button {
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .icon {
+        height: 40px;
+        width: 40px;
+        background: var(--ion-color-primary);
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5pt !important;
+      }
+      .label {
+        color: var(--ion-color-medium);
+        font-size: 0.5rem !important;
+        font-weight: 500;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+}
+
+.plt-android #mapSection {
+  // height: 44vh;
+  justify-content: flex-end !important;
+  height: calc(100vh - 370px);
+}
+
+.ios #mapSection {
+  // height: 40vh;
+  justify-content: flex-end !important;
+  height: calc(100vh - 340px) !important;
+}
+
+.map {
+  // height: 50vh;
+  height: 100%;
+  min-width: 100px;
+  min-height: 100px;
+  position: relative;
+}
+ion-fab {
+  z-index: auto !important;
+}
+
+ion-fab-button[data-desc] {
+  position: relative;
+  z-index: 999;
+}
+
+ion-fab-button[data-desc]::after {
+  position: absolute;
+    content: attr(data-desc);
+    z-index: auto !important;
+    left: 47px;
+    bottom: 4px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+
+.icon_route_text {
+  // I'd suggest to have the icon in src/assets (eg ../assets/icon/favicon.ico)
+  background-image: url("../../assets/icon-route-text.png") !important;
+  // to properly position the icon:
+  background-repeat: no-repeat !important;
+  background-position: 20px 15px !important;
+  // to indent the text to the right of the icon:
+  padding-left: 70px !important;
+}
+
+
+.icon_route_map {
+  // I'd suggest to have the icon in src/assets (eg ../assets/icon/favicon.ico)
+  background-image: url("../../assets/icon-route-map.png") !important;
+  // to properly position the icon:
+  background-repeat: no-repeat !important;
+  background-position: 20px 15px !important;
+  // to indent the text to the right of the icon:
+  padding-left: 70px !important;
+
+
+}
+
+// @media screen and (max-width: 415px) {
+//   .actions {
+//     padding-right: 2px;
+//     padding-left: 2px;
+//     margin-left: 4px;
+//     margin-right: 4px;
+  
+//     ion-col {      
+//       button {
+//         .label {
+//           font-size:  0.5rem !important;
+//           font-weight: 900;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @media screen and (min-width: 415px) {
+//   .actions {
+//     ion-col {      
+//       button {
+//         .label {
+//           font-size: 0.7rem !important;
+//           font-weight: 700;
+//         }
+//       }
+//     }
+//   }
+// }
+
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .ios #mapSection {
+      height: calc(100vh - 340px) !important;
+    }
+
+    .actions {
+      padding-right: 2px;
+      padding-left: 2px;
+      margin-left: 4px;
+      margin-right: 4px;
+    
+      ion-col {      
+        button {
+          .label {
+            font-size:  0.5rem !important;
+            font-weight: 900;
+          }
+        }
+      }
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .ios #mapSection {
+      height: calc(100vh - 360px) !important;
+    }
+
+    .actions {
+      ion-col {      
+        button {
+          .label {
+            font-size: 0.7rem !important;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .ios #mapSection {
+      height: calc(100vh - 380px) !important;
+    }
+
+}
+
+/* Portrait */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+
+}
+
+/* ----------- Older iPhones (X, Xs, XR and 11) ----------- */
+// iPhone 11
+/* 1792x828px at 326ppi */
+@media only screen 
+    and (device-width: 414px) 
+    and (device-height: 896px) 
+    and (-webkit-device-pixel-ratio: 2) { 
+      .ios #mapSection {
+        height: calc(100vh - 360px) !important;
+      }
+    }

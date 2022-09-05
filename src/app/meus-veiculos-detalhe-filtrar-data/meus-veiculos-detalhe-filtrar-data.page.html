@@ -1,0 +1,30 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title>FILTRAR</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding-start ion-padding-end">
+  <ion-list lines="none">
+    <ion-item>
+      <ion-label color="medium" position="stacked">Data Inicial</ion-label>
+      <ion-datetime id="dt_inicial" mode="md" [(ngModel)]="filter.dt_inicial" cancel-text="Cancelar" done-text="Ok" [value]="filter.startDate" display-format="DD/MM/YYYY HH:mm" pickerFormat="DD MM YYYY HH mm" monthShortNames='jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez' month-short-names='jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez'></ion-datetime>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label color="medium" position="stacked">Data Final</ion-label>
+      <ion-datetime mode="md" [(ngModel)]="filter.dt_final" cancel-text="Cancelar" done-text="Ok" display-format="DD/MM/YYYY HH:mm" pickerFormat="DD MM YYYY HH mm" monthShortNames='jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez' month-short-names='jan, fev, mar, abr, mai, jun, jul, ago, set, out, nov, dez'></ion-datetime>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" color="primary" (click)="cancelar()">
+        CANCELAR
+      </ion-button>
+      <ion-button fill="clear" color="primary" (click)="filtrar(filter)">
+        FILTRAR
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
