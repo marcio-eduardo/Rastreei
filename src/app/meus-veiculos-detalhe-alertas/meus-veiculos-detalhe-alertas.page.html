@@ -1,0 +1,113 @@
+<ion-header>
+	<ion-toolbar color="secondary">
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title>NOTIFICAÇÕES</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item *ngFor="let item of list">
+			<img class="pull-left" src="../../assets/icon-calendar.png">
+			<ion-label text-wrap>
+				<ion-text>
+					<h3>{{(item.dt_ult_alerta != null ? item.dt_ult_alerta : item.dt_abertura) | datahora}}</h3>
+					<p>{{item.assunto}}</p>
+				</ion-text>
+			</ion-label>
+		</ion-item>
+		<ion-item *ngIf="list.length === 0">
+			<div class="empty">
+				Não existem notificações à serem listadas ou a sua pesquisa não retornou dados.
+			</div>
+		</ion-item>
+	</ion-list>
+
+	<!-- <div class="content-info-vehicle">
+		<div class="info-vehicle">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="3">
+						<div class="car-icon-circle">
+							<!-- <img src="../../assets/icon-car-white.png" /> 
+							<ion-img [src]="setIcon(vehicle.tipo_veiculo)"></ion-img>
+						</div>
+					</ion-col>
+					<ion-col size="9">
+						<ion-row class="info">
+							<h3>{{vehicle.nome}}</h3>
+							<h4>{{vehicle.placa}}</h4>
+						</ion-row>
+						<ion-row>
+							<div class="type">{{vehicle.tipo_veiculo}}</div>
+						</ion-row>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+	</div> -->
+</ion-content>
+
+<content-alert-drawer [options]="drawerOptions">
+	<div class="content-info-vehicle">
+		<div class="info-vehicle">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="3">
+						<div class="car-icon-circle">
+							<ion-img [src]="setIcon(vehicle.tipo_veiculo)"></ion-img>
+						</div>
+					</ion-col>
+					<ion-col size="9">
+						<ion-row class="info">
+							<h3>{{vehicle.nome}}</h3>
+							<h4>{{vehicle.placa}}</h4>
+						</ion-row>
+						<ion-row>
+							<div class="type">{{vehicle.tipo_veiculo}}</div>
+						</ion-row>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</div>
+		<div class="info-notificacoes">
+			<ion-grid>
+				<ion-row>
+					<ion-col size="12">
+						<ion-list-header mode="ios">
+							<ion-label>Notificações a receber</ion-label>
+						</ion-list-header>
+						<ion-list mode="ios">
+							<ion-item>
+								<ion-label>De ignição</ion-label>
+								<ion-toggle [(ngModel)]="flg_ignicao.id_status" (ionChange)="changeIgnicao($event)" disabled="{{vIgnicaoVerify}}"></ion-toggle>
+							</ion-item>
+			
+							<ion-item>
+								<ion-label>De movimento</ion-label>
+								<ion-toggle [(ngModel)]="flg_movimento.id_status" (ionChange)="changeMovimentacao($event)" disabled="{{vMovimentoVerify}}"></ion-toggle>
+							  </ion-item>
+							
+							  <!-- <ion-item>
+								<ion-label>Mushrooms</ion-label>
+								<ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
+							  </ion-item> -->
+						</ion-list>			
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+			
+			<!-- <ion-grid>
+				<ion-row>
+					<ion-col size="2"><ion-icon  name="notifications"></ion-icon></ion-col>
+					<ion-col size="10">
+						<ion-text color="primary">
+							<h2>Ativar notificações</h2>
+						  </ion-text>
+					</ion-col>
+				</ion-row>
+			</ion-grid> -->
+		</div>
+	</div>
+</content-alert-drawer>

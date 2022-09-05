@@ -1,0 +1,37 @@
+<ion-content class="ion-padding">
+  <div class="logo" padding-vertical>
+    <img src="../../assets/logo.png" alt="logo">
+  </div>
+  <ion-list lines="none">
+    <ion-item *ngIf="vAppCliente === false">
+      <fa-icon [ngStyle]="{'color': 'var(--ion-color-medium)'}"  slot="start" [icon]='faAddressCard'></fa-icon>
+      <ion-input spellcheck="true" autocomplete="on" placeholder="Código" type="number" [(ngModel)]="loginForm.cod_cliente"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="md-person"></ion-icon>
+      <ion-input no-lines spellcheck="true" autocomplete="on" placeholder="Usuário" [(ngModel)]="loginForm.username" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="md-lock"></ion-icon>
+      <ion-input spellcheck="true" autocomplete="on" placeholder="Senha" [type]="!tooglePassword ? 'password' : 'text'" [(ngModel)]="loginForm.password">
+      </ion-input>
+      <ion-button slot="end" fill="clear" (click)="tooglePassword = !tooglePassword">
+        <ion-icon slot="icon-only" [name]=" !tooglePassword ? 'ios-eye' : 'md-eye-off'"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-label color="medium">Lembrar dados</ion-label>
+      <ion-checkbox (ngModelChange)="clearLoginData($event)" [(ngModel)]="loginForm.rememberMe" mode="md" color="primary" slot="start"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+  <ion-button color="secondary" expand="block" (click)="login(loginForm)" class="large">
+    Entrar
+  </ion-button>
+  <ion-button fill="clear" routerLink="/esqueci-minha-senha" expand="block" color="medium">
+    Esqueci minha senha
+  </ion-button>
+
+</ion-content>
+<div class="desenvolvidoPor">
+  <span text-center>Desenvolvido por <span class="rastreei">rastreei</span></span>
+</div>
