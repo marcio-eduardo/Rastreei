@@ -1,0 +1,10 @@
+@url=http://api-hml.rastreei.com
+
+POST {{url}}/token
+content-type: application/json
+
+{
+"username": "rastreei.api",
+"password": "123456",
+"cod_cliente": 1
+}
