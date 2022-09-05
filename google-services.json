@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "847107372456",
+    "project_id": "rastreei-apps",
+    "storage_bucket": "rastreei-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847107372456:android:3d385d7841f068a86f199d",
+        "android_client_info": {
+          "package_name": "com.rastreei.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "847107372456-nu4t8njmcu75pli9tjpio7h27p5rkr9f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7F22u_68gx8v7HLEmDnjuKto8TvCBc3E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "847107372456-nu4t8njmcu75pli9tjpio7h27p5rkr9f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "847107372456-pvqlf8ip0u8qgotesg7kkbgq6pjrk9mi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.rastreei.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
