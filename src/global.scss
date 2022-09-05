@@ -1,0 +1,129 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "~balloon-css/src/balloon";
+*/
+
+span.rastreei {
+  color: var(--ion-color-primary);
+}
+.desenvolvidoPor {
+  text-align: center;
+  padding: 10px;
+  bottom: 0px;
+
+  img {
+    width: 81px;
+  }
+
+}
+
+.header {
+  .title {
+    font-size: 20px;
+    color: var(--ion-color-medium);
+    margin-bottom: 14px;
+    display: block;
+    font-weight: bold;
+  }
+  .description {
+    font-size: 14px;
+    color: var(--ion-color-light);
+    line-height: 24px;
+  }
+}
+
+ion-back-button.ios {
+  margin-left: 10px !important;
+}
+
+ion-button.large {
+  height: 48px !important;
+}
+
+.header-translucent::after,
+.footer-translucent::before {
+  background-image: none !important;
+}
+
+.empty {
+  color: var(--ion-color-light);
+  font-style: italic;
+}
+
+.modal-wrapper {
+  box-shadow: 0px 24px 28px rgba(0,0,0,0.3) !important;
+}
+
+.meus-veiculos-filter-page  .modal-wrapper {
+  height: 300px;
+  position: absolute;
+  display: block;
+  width: 290px;
+}
+.meus-veiculos-order-page .modal-wrapper {
+  height: 390px;
+  position: absolute;
+  display: block;
+  border-radius: 12px;
+  bottom: -12px;
+}
+
+.meus-veiculos-comandos-page .modal-wrapper {
+  height: 305px;
+  position: absolute;
+  display: block;
+  width: 290px;
+}
+
+.meus-veiculos-comandos-velocidade-page .modal-wrapper {
+  height: 206px;
+  position: absolute;
+  display: block;
+  width: 290px;
+}
+
+.meus-veiculos-comandos-movimento-page .modal-wrapper {
+  height: 206px;
+  position: absolute;
+  display: block;
+  width: 290px;
+}
+
+.meus-veiculos-detalhe-filtrar-data .modal-wrapper {
+  height: 300px;
+  position: absolute;
+  display: block;
+  width: 290px;
+}
+
+.meus-veiculos-url-tempo-page .modal-wrapper {
+  height: 206px;
+  position: absolute;
+  display: block;
+  width: 290px;
+}
