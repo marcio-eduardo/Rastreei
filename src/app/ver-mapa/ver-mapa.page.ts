@@ -11,24 +11,28 @@ import {
   AfterContentInit,
   ElementRef,
 } from "@angular/core";
+
 import { Geolocation } from "@awesome-cordova-plugins/geolocation/ngx";
 import { VehicleLocalizationModel } from "../../models/vehicleLocalizationModel";
 import { IUserInfo } from "../../interfaces/IUserInfo";
+//import { LatLngBounds } from "@capacitor/google-maps/dist/typings/definitions";
+
 import { environment } from "../../environments/environment";
 import {
-  //GoogleMaps,
   GoogleMap,
+  MapType,
+  Marker,
+  //GoogleMaps,
   //GoogleMapsEvent,
   //GoogleMapOptions,
   //CameraPosition,
   //MarkerOptions,
-  Marker,
   //Environment,
   //GoogleMapsMapTypeId, LatLngBounds
 } from "@capacitor/google-maps";
-import { LatLngBounds } from "@capacitor/google-maps/dist/typings/definitions";
 
-declare var google;
+
+//declare var google;
 
 @Component({
   selector: "app-ver-mapa",
@@ -38,33 +42,166 @@ declare var google;
 })
 export class VerMapaPage implements OnInit {
 
-  apiKey = environment.appKey;
-  mapRef = document.getElementById("map");
+  @ViewChild('map') mapRef: ElementRef<HTMLElement>;
+  newMap: GoogleMap;
+  apiKey = environment.googleKey;
+  vehicles: Array<VehicleLocalizationModel> = new Array<VehicleLocalizationModel>();
+  userInfo?: IUserInfo = null;
 
-  map: GoogleMap;
+  center: any = {
+    lat: -22.947288880673938,
+    lng: -43.18793714046478,
+  };
+  markerId: string;
+  
+  constructor(
+    private router: Router,
+    private navCtrl: NavController,
+    private geoSrv: Geolocation,
+    private spinnerSrv: SpinnerService,
+    private userSrv: UserService
+  ) {}
 
-  
-  constructor() {}
-  
+  //this.userInfo = this.userSrv.getUserData();
+
   ngOnInit() {
-    this.loadMap();
+    this.userInfo = this.userSrv.getUserData();
+    this.createMap();
   }
-  async loadMap() {
-    const newMap = await GoogleMap.create({
-      id: "my-map", // Unique identifier for this map instance
-      element: this.mapRef, // reference to the capacitor-google-map element
-      apiKey: this.apiKey, // Your Google Maps API Key
-      config: {
-        center: {
-          // The initial position to be rendered by the map
-          lat: 33.6,
-          lng: -117.9,
+
+  ngAfterViewInit() {
+    this.createMap();
+  }
+  
+  //Cria o mapa através da API Google
+  async createMap() {
+    try {
+      this.newMap = await GoogleMap.create({
+        id: 'capacitor-google-maps',
+        element: this.mapRef.nativeElement,
+        apiKey: this.apiKey,           
+        config: {
+
+          center: this.center,
+          zoom: 15,
+        },       
+      });
+
+      // Move the map programmatically
+      await this.newMap.setCamera({
+        coordinate: {
+          lat: this.center.lat,
+          lng: this.center.lng,
+          // lat: 28.782991, 
+          // lng: 76.945626,
         },
-        zoom: 8, // The initial zoom level to be rendered by the map
+        animate: true
+      });
+
+        // Enable marker clustering
+      // await this.newMap.enableClustering();
+
+        // Enable traffic Layer
+      await this.newMap.enableTrafficLayer(true);
+
+      await this.newMap.enableCurrentLocation(true);
+
+      // await this.newMap.setPadding({
+      //   top: 50,
+      //   left: 50,
+      //   right: 0,
+      //   bottom: 0,
+      // });
+
+      // await this.newMap.setMapType(MapType.Satellite);
+  
+      this.addMarkers(this.center.lat, this.center.lng);
+      this.addListeners();
+    } catch(e) {
+      console.log(e);
+    }
+  }
+
+  //Adiciona marcadores no
+  async addMarkers(lat, lng) {
+    // Add a marker to the map
+    // if(this.markerId) this.removeMarker();
+    await this.newMap.addMarkers([
+      {
+        coordinate: {
+          lat: lat,
+          lng: lng,
+        },
+        // title: ,
+        draggable: true
       },
+      {
+        coordinate: {
+          lat: 28.782991, 
+          lng: 76.945626,
+        },
+        // title: ,
+        draggable: true
+      },
+    ]);
+  }
+  
+  async addMarker(lat, lng) {
+    // Add a marker to the map
+    // if(this.markerId) this.removeMarker();
+    this.markerId = await this.newMap.addMarker({
+      coordinate: {
+        lat: lat,
+        lng: lng,
+      },
+      // title: ,
+      draggable: true
     });
   }
+
+  //Remove marcadores
+  async removeMarker(id?) {
+    await this.newMap.removeMarker(id ? id : this.markerId);
+  }
+
+  async addListeners() {
+    // Handle marker click
+    await this.newMap.setOnMarkerClickListener((event) => {
+      console.log('setOnMarkerClickListener', event);
+      this.removeMarker(event.markerId);
+    });
+
+    // await this.newMap.setOnCameraMoveStartedListener((event) => {
+    //   console.log(event);
+    // });
+
+    await this.newMap.setOnMapClickListener((event) => {
+      console.log('setOnMapClickListener', event);
+      this.addMarker(event.latitude, event.longitude);
+    });
+
+    await this.newMap.setOnMyLocationButtonClickListener((event) => {
+      console.log('setOnMyLocationButtonClickListener', event);
+      this.addMarker(event.latitude, event.longitude);
+    });
+
+    await this.newMap.setOnMyLocationClickListener((event) => {
+      console.log('setOnMyLocationClickListener', event);
+      this.addMarker(event.latitude, event.longitude);
+    });
+  }
+
+  async myPositionCenter() {
+
+  }
+
+
+  
 }
+
+
+
+
 
 /*Revisar todo o código
 map

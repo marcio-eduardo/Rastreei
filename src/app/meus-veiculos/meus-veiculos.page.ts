@@ -8,14 +8,16 @@ import { UserService } from './../../services/user.service';
 import { IUserInfo } from './../../interfaces/IUserInfo';
 import { Component, OnInit } from '@angular/core';
 import { faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
-import { Observable, of } from 'rxjs';
-import { interval } from 'rxjs';
+import { Observable, of, interval } from 'rxjs';
+//import { interval } from 'rxjs';
+
 //import 'rxjs/add/observable/interval';
-// import 'rxjs/add/operator/mergeMapTo';
-// import 'rxjs/add/operator/map';
+//import 'rxjs/add/operator/mergeMapTo';
+//import 'rxjs/add/operator/map';
+
 import { SpinnerService } from '../../services/spinner.service';
-// import { storeKeys } from './../../shared/constants';
-// import { AlertService } from './../../services/alert.service';
+import { storeKeys } from './../../shared/constants';
+import { AlertService } from './../../services/alert.service';
 import { AuthService } from "./../../services/auth.service";
 
 @Component({

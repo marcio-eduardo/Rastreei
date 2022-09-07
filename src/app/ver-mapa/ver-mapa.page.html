@@ -6,21 +6,20 @@
 		<ion-title>LOCALIZAÇÃO</ion-title>
 	</ion-toolbar>
 </ion-header>
-<!-- <ion-content>
 
-</ion-content> -->
+
+<!-- <ion-content>
 <div #mapElement id="map1" class="map"></div>
-<div class="me" (click)="myPositionCenter()">
-	<img src="../../assets/icon-route-map.png">
-</div>
+
+
 <div class="content-user-profile">
 	<div class="info">
 		<div class="photo"></div>
 		<div class="user">
-			<!-- <span>{{ userInfo?.nome | slice: 0: 15}}{{ userInfo?.nome.length > 15 ? '...' : ''}}</span> -->
+			!-- <span>{{ userInfo?.nome | slice: 0: 15}}{{ userInfo?.nome.length > 15 ? '...' : ''}}</span> >>>>
 			<span>{{ userInfo?.nome }}</span>
 			<span>
-				<!-- Código: {{ userInfo?.id_usuario_login }} -->
+				!-- Código: {{ userInfo?.id_usuario_login }} <>>>>
 			</span>
 		</div>
 	</div>
@@ -31,3 +30,30 @@
 		<span>Veículos</span>
 	</div>
 </div>
+</ion-content> -->
+
+<capacitor-google-maps class="mapa" #map>
+
+</capacitor-google-maps>
+	<div class="me" (click)="myPositionCenter()">
+		<img src="../../assets/icon-route-map.png">
+	</div>
+	<div class="content-user-profile">
+		<div class="info">
+			<div class="photo"></div>
+			<div class="user">
+				<!-- <span>{{ userInfo?.nome | slice: 0: 15}}{{ userInfo?.nome.length > 15 ? '...' : ''}}</span> -->				
+					<span routerLink="/meus-veiculos" color="secondary">{{ userInfo?.nome }}</span>				
+				<span>
+					<!-- Código: {{ userInfo?.id_usuario_login }} -->
+				</span>
+			</div>
+		</div>
+		<div class="count">
+			<div class="box-count">
+				<span>{{ vehicles.length}}</span>
+			</div>
+			<span>Veículos</span>
+		</div>
+	</div>
+

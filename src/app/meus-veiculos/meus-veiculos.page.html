@@ -40,6 +40,7 @@
     </span>
   </div>
 
+  <!-- Botão ver Mapa-->
   <ion-button [disabled]="list.length === 0" color="white" (click)="showInMap()">
     VER MAPA
   </ion-button>
@@ -52,6 +53,7 @@
   </ion-refresher>
 
   <div class="ion-padding">
+
     <div class="filter">
       <h3>Lista de Veículos</h3>
       <div class="filter-buttons">
@@ -68,35 +70,43 @@
         
       </div>
     </div>
+
     <ion-list lines="none">
       <ion-item *ngFor="let item of list" (click)="details(item)">
         <div class="icon-box" slot="start">
           <!-- <ion-icon name="ios-car" [ngStyle]="{'color':'#FFF'}"></ion-icon> -->
           <ion-img [src]="setIcon(item.tipo_veiculo)"></ion-img>
         </div>
+
         <ion-text>
+
           <div class="row-item">
             <span class="title">{{item.placa}}</span>
             <small>{{item.dt_localizacao | datahora}}</small>
           </div>
+
           <div class="row-item">
             <div class="element">
-              <ion-icon name="ios-power"></ion-icon>
+              <ion-icon name="power"></ion-icon>
               {{ item.ignicao.data[0] === 1 ? 'Ligado' : 'Desligado' }}
             </div>
+
             <div class="element">
               <ion-icon name="md-battery-charging"></ion-icon>
               {{item.bateria / 100}}v
             </div>
+
             <div class="element">
               <ion-icon name="ios-speedometer"></ion-icon>
               {{item.velocidade}} km/h
             </div>
+
           </div>
           <div class="row-item">
             <span>{{item.endereco}}</span>
             <!-- <div *ngIf="item.total_alerta > 0" class="check"></div> -->
           </div>
+          
         </ion-text>
       </ion-item>
       <ion-item *ngIf="list.length === 0">

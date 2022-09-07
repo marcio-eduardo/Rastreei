@@ -34,10 +34,10 @@ const routes: Routes = [
     path: 'notificacoes',
     loadChildren: () => import('./notificacoes/notificacoes.module').then(m => m.NotificacoesPageModule)
   },
- // {
- //   path: 'ver-mapa',
-  //  loadChildren: () => import('./ver-mapa/ver-mapa.module').then(m => m.VerMapaPageModule)
-  //},
+  {
+  path: 'ver-mapa',
+  loadChildren: () => import('./ver-mapa/ver-mapa.module').then(m => m.VerMapaPageModule)
+  },
   {
     path: 'meus-veiculos-detalhes',
     loadChildren: () => import('./meus-veiculos-detalhes/meus-veiculos-detalhes.module').then(m => m.MeusVeiculosDetalhesPageModule)
